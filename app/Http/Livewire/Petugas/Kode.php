@@ -44,7 +44,7 @@ class Kode extends Component
 
         $this->edit = true;
         $this->nama = $kode->nama;
-        $this->kode_buku = $kode->id;
+        $this->kode_buku = $kode->nama;
     }
 
     public function update(ModelsKode $kode)
@@ -63,12 +63,12 @@ class Kode extends Component
     public function delete(ModelsKode $kode)
     {
         $this->delete = true;
-        $this->kode_buku = $kode->id;
+        $this->kode_buku = $kode->nama;
     }
 
     public function destroy(ModelsKode $kode)
     {
-        $buku = Buku::where('kode_buku', $kode->id)->get();
+        $buku = Buku::where('kode_buku', $kode->nama)->get();
         foreach ($buku as $key => $value) {
             $value->update([
                 'kode_buku' => 1

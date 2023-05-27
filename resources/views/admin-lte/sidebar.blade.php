@@ -48,12 +48,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/rak" class="nav-link  @yield('active-rak')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rak</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/penerbit" class="nav-link  @yield('active-penerbit')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Penerbit</p>

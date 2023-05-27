@@ -12,7 +12,7 @@ class User extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $admin, $petugas, $peminjam, $search;
+    public $admin, $petugas, $anggota, $search;
     public $create, $name, $email, $password, $password_confirmation;
 
     protected $validationAttributes = [
@@ -42,10 +42,10 @@ class User extends Component
         $this->petugas = true;
     }
   
-    public function peminjam()
+    public function anggota()
     {
         $this->format();
-        $this->peminjam = true;
+        $this->anggota = true;
     }
 
     public function create()
@@ -68,7 +68,7 @@ class User extends Component
         }elseif ($this->petugas) {
             $user->assignRole('petugas');
         } else {
-            $user->assignRole('peminjam');
+            $user->assignRole('anggota');
         }
 
         session()->flash('sukses', 'Data berhasil ditambahkan.');
@@ -87,8 +87,8 @@ class User extends Component
                 $user = ModelsUser::role('admin')->where('name', 'like', '%'. $this->search .'%')->paginate(5);
             } elseif ($this->petugas) {
                 $user = ModelsUser::role('petugas')->where('name', 'like', '%'. $this->search .'%')->paginate(5);
-            } elseif ($this->peminjam) {
-                $user = ModelsUser::role('peminjam')->where('name', 'like', '%'. $this->search .'%')->paginate(5);
+            } elseif ($this->anggota) {
+                $user = ModelsUser::role('anggota')->where('name', 'like', '%'. $this->search .'%')->paginate(5);
             } else {
                 $user = ModelsUser::where('name', 'like', '%' . $this->search . '%')->paginate(5);
             }
@@ -97,8 +97,8 @@ class User extends Component
                 $user = ModelsUser::role('admin')->paginate(5);
             } elseif ($this->petugas) {
                 $user = ModelsUser::role('petugas')->paginate(5);
-            } elseif ($this->peminjam) {
-                $user = ModelsUser::role('peminjam')->paginate(5);
+            } elseif ($this->anggota) {
+                $user = ModelsUser::role('anggota')->paginate(5);
             } else {
                 $user = ModelsUser::paginate(5);
             }
@@ -111,7 +111,7 @@ class User extends Component
     {
         $this->admin = false;
         $this->petugas = false;
-        $this->peminjam = false;
+        $this->anggota = false;
         unset($this->create);
         unset($this->name);
         unset($this->email);

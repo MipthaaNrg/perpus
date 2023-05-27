@@ -21,7 +21,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/java.jpg',
             'penulis' => 'Abdul Kadir',
             'penerbit_id' => 2,
-            'kode_buku' => 000 - Komputer,
+            'kode_buku' => '000 - Komputer',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);
@@ -32,7 +32,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/design.jpg',
             'penulis' => 'Arista Prasetiyo Adi',
             'penerbit_id' => 2,
-            'kode_buku' => 000 - Komputer,
+            'kode_buku' => '000 - Komputer',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);
@@ -43,7 +43,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/novel.jpg',
             'penulis' => 'Rahmat Riyadi',
             'penerbit_id' => 2,
-            'kode_id' => 300 - Novel,
+            'kode_id' => '300 - Novel',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);
@@ -54,7 +54,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/komik.jpg',
             'penulis' => 'Bae Dong-sun',
             'penerbit_id' => 2,
-            'kode_buku' => 500 - Komik,
+            'kode_buku' => '500 - Komik',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);
@@ -65,7 +65,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/biografi.jpg',
             'penulis' => 'Litbang Kompas',
             'penerbit_id' => 5,
-            'kode_buku' => 400 - Biografi,
+            'kode_buku' => '400 - Biografi',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);
@@ -76,8 +76,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/sejarah.jpg',
             'penulis' => 'Thomas Stamford Raffles',
             'penerbit_id' => 5,
-            'kode_buku' => 6,
-            'rak_id' => 2,
+            'kode_buku' => '100 - Sejarah',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);

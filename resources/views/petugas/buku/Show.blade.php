@@ -36,22 +36,12 @@
                                     <tr>
                                         <th>Kode Buku</th>
                                         <td>:</td>
-                                        <td>{{$kode_buku}}</td>
+                                        <td>{{$kode}}</td>
                                     </tr>
                                     <tr>
                                         <th>Tahun Terbit</th>
                                         <td>:</td>
                                         <td>{{$tahun_terbit}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Rak</th>
-                                        <td>:</td>
-                                        <td>{{$rak == 0 ? 'none' : $rak}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Baris</th>
-                                        <td>:</td>
-                                        <td>{{$baris == 0 ? 'none' : $baris}}</td>
                                     </tr>
                                     <tr>
                                         <th>Stok</th>

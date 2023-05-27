@@ -12,7 +12,6 @@
 
     <div class="card">
         <div class="card-header">
-        <span wire:click="create" class="btn btn-sm btn-primary">Tambah</span>
 
             <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -56,7 +55,6 @@
                                 @endforeach
                             </ul>
                         </td>
-                    
                         <td>{{$item->tanggal_pinjam}}</td>
                         <td>{{$item->tanggal_kembali}}</td>
                         <td>{{$item->denda}}</td>
