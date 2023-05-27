@@ -9,12 +9,12 @@
         <button wire:click="format" class="btn btn-sm bg-teal mr-2">Semua</button>
         <button wire:click="admin" class="btn btn-sm bg-indigo mr-2">Admin</button>
         <button wire:click="petugas" class="btn btn-sm bg-olive mr-2">Petugas</button>
-        <button wire:click="peminjam" class="btn btn-sm bg-fuchsia mr-2">Peminjam</button>
+        <button wire:click="anggota" class="btn btn-sm bg-fuchsia mr-2">Anggota</button>
     </div>
 
     <div class="card">
         <div class="card-header">
-            @if ($admin || $petugas || $peminjam)
+            @if ($admin || $petugas || $anggota)
                  <span wire:click="create" class="btn btn-sm btn-primary">Tambah</span>
             @endif
 
@@ -52,7 +52,7 @@
                             @elseif ($item->roles[0]->name == 'petugas')
                                 <span class="badge bg-olive">Petugas</span>
                             @else
-                                <span class="badge bg-fuchsia">Peminjam</span>
+                                <span class="badge bg-fuchsia">Anggota</span>
                             @endif
                         </td>
                     </tr>

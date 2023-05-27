@@ -34,8 +34,6 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Penulis</th>
-                    <th>Rak</th>
-                    <th>Baris</th>
                     @if (!$keranjang->tanggal_pinjam)
                         <th></th>
                     @endif   
@@ -47,8 +45,6 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->buku->judul}}</td>
                             <td>{{$item->buku->penulis}}</td>
-                            <td>{{$item->buku->rak->rak}}</td>
-                            <td>{{$item->buku->rak->baris}}</td>
                             <td>
                                 @if (!$keranjang->tanggal_pinjam)
                                     <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>

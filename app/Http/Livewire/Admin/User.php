@@ -68,7 +68,7 @@ class User extends Component
         }elseif ($this->petugas) {
             $user->assignRole('petugas');
         } else {
-            $user->assignRole('anggota');
+            $user->assignRole('peminjam');
         }
 
         session()->flash('sukses', 'Data berhasil ditambahkan.');

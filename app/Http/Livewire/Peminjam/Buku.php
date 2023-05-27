@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Peminjam;
 
 use App\Models\Buku as ModelsBuku;
 use App\Models\DetailPeminjaman;
-use App\Models\Kategori;
+use App\Models\Kode;
 use App\Models\Peminjaman;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -15,22 +15,22 @@ class Buku extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    protected $listeners = ['pilihKategori', 'semuaKategori'];
+    protected $listeners = ['pilihKode', 'semuaKode'];
 
-    public $kategori_id, $pilih_kategori, $buku_id, $detail_buku, $search;
+    public $kode_buku, $pilih_kode, $buku_id, $detail_buku, $search;
 
-    public function pilihKategori($id)
+    public function pilihKode($id)
     {
         $this->format();
-        $this->kategori_id = $id;
-        $this->pilih_kategori = true;
+        $this->kode_buku = $id;
+        $this->pilih_kode = true;
         $this->updatingSearch();
     }
 
-    public function semuaKategori()
+    public function semuaKode()
     {
         $this->format();
-        $this->pilih_kategori = false;
+        $this->pilih_kode = false;
         $this->updatingSearch();
     }
 
@@ -47,7 +47,7 @@ class Buku extends Component
         if (auth()->user()) {
             
             // role peminjam
-            if (auth()->user()->hasRole('peminjam')) {
+            if (auth()->user()->hasRole('anggota')) {
                
                 $peminjaman_lama = DB::table('peminjaman')
                     ->join('detail_peminjaman', 'peminjaman.id', '=', 'detail_peminjaman.peminjaman_id')
@@ -113,13 +113,13 @@ class Buku extends Component
 
     public function render()
     {
-        if ($this->pilih_kategori) {
+        if ($this->pilih_kode) {
             if ($this->search) {
-                $buku = ModelsBuku::latest()->where('judul', 'like', '%'. $this->search .'%')->where('kategori_id', $this->kategori_id)->paginate(12);
+                $buku = ModelsBuku::latest()->where('judul', 'like', '%'. $this->search .'%')->where('kode_buku', $this->kode_buku)->paginate(12);
             } else {
-                $buku = ModelsBuku::latest()->where('kategori_id', $this->kategori_id)->paginate(12);
+                $buku = ModelsBuku::latest()->where('kode_buku', $this->kode_buku)->paginate(12);
             }
-            $title = Kategori::find($this->kategori_id)->nama;
+            $title = Kode::find($this->kode_buku)->nama;
         }elseif ($this->detail_buku) {
             $buku = ModelsBuku::find($this->buku_id);
             $title = 'Detail Buku';
@@ -138,8 +138,8 @@ class Buku extends Component
     public function format()
     {
         $this->detail_buku = false;
-        $this->pilih_kategori = false;
+        $this->pilih_kode = false;
         unset($this->buku_id);
-        unset($this->kategori_id);
+        unset($this->kode_buku);
     }
 }

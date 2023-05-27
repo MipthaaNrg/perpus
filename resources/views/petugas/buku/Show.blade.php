@@ -34,9 +34,14 @@
                                         <td>{{$penerbit}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Kategori</th>
+                                        <th>Kode Buku</th>
                                         <td>:</td>
-                                        <td>{{$kategori}}</td>
+                                        <td>{{$kode_buku}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tahun Terbit</th>
+                                        <td>:</td>
+                                        <td>{{$tahun_terbit}}</td>
                                     </tr>
                                     <tr>
                                         <th>Rak</th>

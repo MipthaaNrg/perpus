@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <livewire:peminjam.kategori></livewire:peminjam.kategori>
+        <livewire:peminjam.kode></livewire:peminjam.kode>
 
         <main class="py-4">
             @yield('content')

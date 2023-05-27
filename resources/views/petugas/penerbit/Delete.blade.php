@@ -3,7 +3,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 class="modal-title">Hapus Kategori</h4>
+                <h4 class="modal-title">Hapus Kode Buku</h4>
                 <span wire:click="format" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </span>

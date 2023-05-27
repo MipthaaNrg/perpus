@@ -35,7 +35,6 @@
                     <th width="10%">No</th>
                     <th>Kode Pinjam</th>
                     <th>Buku</th>
-                    <th>Lokasi</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
                     <th>Denda</th>
@@ -57,13 +56,7 @@
                                 @endforeach
                             </ul>
                         </td>
-                       <td>
-                            <ul>
-                                @foreach ($item->detail_peminjaman as $detail_peminjaman)
-                                <li>{{$detail_peminjaman->buku->rak->lokasi}}</li>
-                                @endforeach
-                            </ul>
-                        </td>
+                    
                         <td>{{$item->tanggal_pinjam}}</td>
                         <td>{{$item->tanggal_kembali}}</td>
                         <td>{{$item->denda}}</td>

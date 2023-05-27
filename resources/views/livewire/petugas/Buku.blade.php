@@ -34,7 +34,7 @@
                     <th>Sampul</th>
                     <th>Judul</th>
                     <th>Penulis</th>
-                    <th>Kategori</th>
+                    <th>Kode Buku</th>
                     <th width="15%">Aksi</th>
                 </tr>
                 </thead>
@@ -45,7 +45,7 @@
                         <td><img src="/storage/{{$item->sampul}}" alt="{{$item->judul}}" width="60" height="80"></td>
                         <td>{{$item->judul}}</td>
                         <td>{{$item->penulis}}</td>
-                        <td>{{$item->kategori->nama}}</td>
+                        <td>{{$item->kode_buku}}</td>
                         <td>
                             <div class="btn-group">
                                 <span wire:click="show({{$item->id}})" class="btn btn-sm btn-success mr-2">Lihat</span>

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kategori;
+use App\Models\Kode;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class KategoriSeeder extends Seeder
+class KodeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class KategoriSeeder extends Seeder
      */
     public function run()
     {
-        $kategori = ['none','Buku', 'Novel', 'Sejarah', 'Religi', 'Biografi', 'Komik'];
+        $kode = ['none','000 - Komputer', '100 - Sejarah', '200 - Biografi', '300 - Novel', '400 - Komik'];
 
-        foreach ($kategori as $value) {
-            Kategori::create([
+        foreach ($kode as $value) {
+            Kode::create([
                 'nama' => $value,
                 'slug' => Str::slug($value)
             ]);

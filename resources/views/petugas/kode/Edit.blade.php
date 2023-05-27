@@ -1,4 +1,4 @@
-@if ($create)
+@if ($edit)
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
@@ -6,7 +6,7 @@
                     <input wire:model="nama" type="text" class="form-control" id="nama" name="nama">
                     @error('nama') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
-                <span wire:click="store" class="btn btn-sm btn-success">Simpan</span>
+                <span wire:click="update({{$kode_buku}})" class="btn btn-sm btn-success">Update</span>
             </div>
         </div>
     @endif

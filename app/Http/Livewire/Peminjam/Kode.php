@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Peminjam;
 
-use App\Models\Kategori as ModelsKategori;
+use App\Models\Kode as ModelsKode;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Kategori extends Component
+class Kode extends Component
 {
     protected $listeners = ['tambahKeranjang', 'kurangiKeranjang'];
 
@@ -23,14 +23,14 @@ class Kategori extends Component
         }
     }
 
-    public function pilihKategori($id)
+    public function pilihKode($id)
     {
-        $this->emit('pilihKategori', $id);
+        $this->emit('pilihKode', $id);
     }
 
-    public function semuaKategori()
+    public function semuaKode()
     {
-        $this->emit('semuaKategori');
+        $this->emit('semuaKode');
     }
 
     public function tambahKeranjang()
@@ -45,8 +45,8 @@ class Kategori extends Component
 
     public function render()
     {
-        return view('livewire.peminjam.kategori', [
-            'kategori' => ModelsKategori::where('id', '!=', 1)->get(),
+        return view('livewire.peminjam.kode', [
+            'kode' => ModelsKode::where('id', '!=', 1)->get(),
             'count' => $this->count
         ]);
     }

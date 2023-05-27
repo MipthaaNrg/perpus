@@ -20,8 +20,9 @@ class CreateBukuTable extends Migration
             $table->string('sampul');
             $table->string('penulis');
             $table->foreignId('penerbit_id');
-            $table->foreignId('kategori_id');
+            $table->foreignId('kode_buku');
             $table->foreignId('rak_id');
+            $table->string('tahun_terbit');
             $table->integer('stok');
             $table->timestamps();
         });

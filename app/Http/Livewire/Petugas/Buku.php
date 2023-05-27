@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Petugas;
 
 use App\Models\Buku as ModelsBuku;
-use App\Models\Kategori;
+use App\Models\Kode;
 use App\Models\Penerbit;
-use App\Models\Rak;
+// use App\Models\Rak;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -19,37 +19,38 @@ class Buku extends Component
     use WithFileUploads;
 
     public $create, $edit, $delete, $show;
-    public $kategori, $rak, $penerbit;
-    public $kategori_id, $rak_id, $penerbit_id, $baris;
-    public $judul, $stok, $penulis, $sampul, $buku_id, $search;
+    public $kode, $rak, $penerbit;
+    public $kode_buku, $rak_id, $penerbit_id, $baris;
+    public $judul, $stok, $penulis, $tahun, $tahun_terbit, $sampul, $buku_id, $search;
 
     protected $rules = [
         'judul' => 'required',
         'penulis' => 'required',
         'stok' => 'required|numeric|min:1',
+        'tahun_terbit' => 'required|numeric|min:1',
         'sampul' => 'required|image|max:1024',
-        'kategori_id' => 'required|numeric|min:1',
-        'rak_id' => 'required|numeric|min:1',
+        'kode_buku' => 'required|numeric|min:1',
+        // 'rak_id' => 'required|numeric|min:1',
         'penerbit_id' => 'required|numeric|min:1',
     ];
 
     protected $validationAttributes = [
-        'kategori_id' => 'kategori',
-        'rak_id' => 'rak',
+        'kode_buku' => 'kode',
+        // 'rak_id' => 'rak',
         'penerbit_id' => 'penerbit',
     ];
 
-    public function pilihKategori()
-    {
-        $this->rak = Rak::where('kategori_id', $this->kategori_id)->get();
-    }
+    // public function pilihKode()
+    // {
+    //     $this->rak = Rak::where('kode_buku', $this->kode_buku)->get();
+    // }
 
     public function create()
     {
         $this->format();
 
         $this->create = true;
-        $this->kategori = Kategori::all();
+        $this->kode = Kode::all();
         $this->penerbit = Penerbit::all();
     }
 
@@ -64,8 +65,9 @@ class Buku extends Component
             'judul' => $this->judul,
             'penulis' => $this->penulis,
             'stok' => $this->stok,
-            'kategori_id' => $this->kategori_id,
-            'rak_id' => $this->rak_id,
+            'kode_buku' => $this->kode_buku,
+            'tahun_terbit' => $this->tahun_terbit,
+            // 'rak_id' => $this->rak_id,
             'penerbit_id' => $this->penerbit_id,
             'slug' => Str::slug($this->judul)
         ]);
@@ -83,10 +85,12 @@ class Buku extends Component
         $this->sampul = $buku->sampul;
         $this->penulis = $buku->penulis;
         $this->stok = $buku->stok;
-        $this->kategori = $buku->kategori->nama;
+        $this->tahun = $buku->tahun;
+        $this->tahun_terbit = $buku->tahun_terbit;
+        $this->kode = $buku->kode;
         $this->penerbit = $buku->penerbit->nama;
-        $this->rak = $buku->rak->rak;
-        $this->baris = $buku->rak->baris;
+        // $this->rak = $buku->rak->rak;
+        // $this->baris = $buku->rak->baris;
     }
 
     public function edit(ModelsBuku $buku)
@@ -98,11 +102,13 @@ class Buku extends Component
         $this->judul = $buku->judul;
         $this->penulis = $buku->penulis;
         $this->stok = $buku->stok;
-        $this->kategori_id = $buku->kategori_id;
-        $this->rak_id = $buku->rak_id;
+        $this->kode_buku = $buku->kode_buku;
+        // $this->tahun = $buku->$tahun;
+        // $this->tahun = $buku->$tahun_terbit;
+        // $this->rak_id = $buku->rak_id;
         $this->penerbit_id = $buku->penerbit_id;
-        $this->kategori = Kategori::all();
-        $this->rak = Rak::where('kategori_id', $buku->kategori_id)->get();
+        $this->kode = Kode::all();
+        // $this->rak = Rak::where('kode_buku', $buku->kode_buku)->get();
         $this->penerbit = Penerbit::all();
     }
 
@@ -112,8 +118,9 @@ class Buku extends Component
             'judul' => 'required',
             'penulis' => 'required',
             'stok' => 'required|numeric|min:1',
-            'kategori_id' => 'required|numeric|min:1',
-            'rak_id' => 'required|numeric|min:1',
+            'kode_buku' => 'required|numeric|min:1',
+            'tahun_terbit' => 'required|numeric|min:1',
+            // 'rak_id' => 'required|numeric|min:1',
             'penerbit_id' => 'required|numeric|min:1',
         ];
 
@@ -135,8 +142,9 @@ class Buku extends Component
             'judul' => $this->judul,
             'penulis' => $this->penulis,
             'stok' => $this->stok,
-            'kategori_id' => $this->kategori_id,
-            'rak_id' => $this->rak_id,
+            'kode_buku' => $this->kode_buku,
+            'tahun_terbit' => $this->tahun_terbit,
+            // 'rak_id' => $this->rak_id,
             'penerbit_id' => $this->penerbit_id,
             'slug' => Str::slug($this->judul)
         ]);
@@ -189,11 +197,13 @@ class Buku extends Component
         unset($this->sampul);
         unset($this->stok);
         unset($this->penulis);
-        unset($this->kategori);
+        unset($this->kode);
         unset($this->penerbit);
-        unset($this->rak);
-        unset($this->rak_id);
+        // unset($this->rak);
+        // unset($this->rak_id);
         unset($this->penerbit_id);
-        unset($this->kategori_id);
+        unset($this->kode_buku);
+        unset($this->tahun_terbit);
+        unset($this->tahun);
     }
 }

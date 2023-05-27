@@ -10,11 +10,11 @@ class Buku extends Model
     use HasFactory;
 
     protected $table = 'buku';
-    protected $fillable = ['judul', 'stok', 'sampul', 'slug', 'penulis', 'kategori_id', 'rak_id', 'penerbit_id'];
+    protected $fillable = ['judul', 'stok', 'sampul', 'slug', 'penulis', 'kode_buku', 'rak_id', 'penerbit_id', 'tahun_terbit'];
 
-    public function kategori()
+    public function kode()
     {
-        return $this->belongsTo(Kategori::class);
+        return $this->belongsTo(Kode::class);
     }
 
     public function penerbit()
@@ -22,10 +22,6 @@ class Buku extends Model
         return $this->belongsTo(Penerbit::class);
     }
 
-    public function rak()
-    {
-        return $this->belongsTo(Rak::class);
-    }
 
     public function buku()
     {
@@ -41,5 +37,10 @@ class Buku extends Model
     public function setPenulisAttribute($value)
     {
         $this->attributes['penulis'] = ucfirst($value);
+    }
+
+    public function setTahunAttribute($value)
+    {
+        $this->attributes['tahun_terbit'] = ucfirst($value);
     }
 }

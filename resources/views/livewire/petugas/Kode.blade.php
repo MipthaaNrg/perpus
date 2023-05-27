@@ -3,9 +3,9 @@
 
     @include('admin-lte/flash')
 
-    @include('petugas/kategori/create')
-    @include('petugas/kategori/edit')
-    @include('petugas/kategori/delete')
+    @include('petugas/kode/create')
+    @include('petugas/kode/edit')
+    @include('petugas/kode/delete')
 
     <div class="card">
         <div class="card-header">
@@ -25,18 +25,18 @@
             </div>
             </div>
             <!-- /.card-header -->
-            @if ($kategori->isNotEmpty())
+            @if ($kode->isNotEmpty())
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
                         <tr>
                             <th width="10%">No</th>
-                            <th>Kategori</th>
+                            <th>Kode Buku</th>
                             <th width="15%">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($kategori as $item)
+                        @foreach ($kode as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->nama}}</td>
@@ -57,10 +57,10 @@
     <!-- /.card -->
 
     <div class="row justify-content-center">
-        {{$kategori->links()}}
+        {{$kode->links()}}
     </div>
 
-    @if ($kategori->isEmpty())
+    @if ($kode->isEmpty())
         <div class="card">
             <div class="card-body">
                 <div class="alert alert-warning">

@@ -40,24 +40,19 @@
                       <td>{{$buku->penulis}}</td>
                     </tr>
                     <tr>
-                      <th>Kategori</th>
+                      <th>Kode Buku</th>
                       <td>:</td>
-                      <td>{{$buku->kategori->nama}}</td>
+                      <td>{{$buku->kode_buku}}</td>
+                    </tr>
+                    <tr>
+                      <th>Tahun Terbit</th>
+                      <td>:</td>
+                      <td>{{$buku->tahun_terbit}}</td>
                     </tr>
                     <tr>
                       <th>Penerbit</th>
                       <td>:</td>
                       <td>{{$buku->penerbit->nama}}</td>
-                    </tr>
-                    <tr>
-                      <th>Rak</th>
-                      <td>:</td>
-                      <td>{{$buku->rak->rak}}</td>
-                    </tr>
-                    <tr>
-                      <th>Baris</th>
-                      <td>:</td>
-                      <td>{{$buku->rak->baris}}</td>
                     </tr>
                     <tr>
                       <th>Stok</th>
