@@ -19,10 +19,10 @@ class Buku extends Component
 
     public $kode_buku, $pilih_kode, $buku_id, $detail_buku, $search;
 
-    public function pilihKode($id)
+    public function pilihKode($nama)
     {
         $this->format();
-        $this->kode_buku = $id;
+        $this->kode_buku = $nama;
         $this->pilih_kode = true;
         $this->updatingSearch();
     }

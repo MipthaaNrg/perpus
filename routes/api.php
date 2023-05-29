@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/buku', [App\Http\Controllers\API\BukuController::class, 'getBuku']);
+
+Route::post('/penerbit', [App\Http\Controllers\API\PenerbitController::class, 'store']);

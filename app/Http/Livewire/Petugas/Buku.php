@@ -29,7 +29,7 @@ class Buku extends Component
         'stok' => 'required|numeric|min:1',
         'tahun_terbit' => 'required|numeric|min:1',
         'sampul' => 'required|image|max:1024',
-        'kode_buku' => 'required|numeric|min:1',
+        'kode_buku' => 'required',
         // 'rak_id' => 'required|numeric|min:1',
         'penerbit_id' => 'required|numeric|min:1',
     ];
@@ -88,6 +88,7 @@ class Buku extends Component
         $this->tahun = $buku->tahun;
         $this->tahun_terbit = $buku->tahun_terbit;
         $this->kode = $buku->kode;
+        $this->kode_buku = $buku->kode_buku;
         $this->penerbit = $buku->penerbit->nama;
         // $this->rak = $buku->rak->rak;
         // $this->baris = $buku->rak->baris;
@@ -103,8 +104,9 @@ class Buku extends Component
         $this->penulis = $buku->penulis;
         $this->stok = $buku->stok;
         $this->kode_buku = $buku->kode_buku;
+
         // $this->tahun = $buku->$tahun;
-        // $this->tahun = $buku->$tahun_terbit;
+        $this->tahun_terbit = $buku->tahun_terbit;
         // $this->rak_id = $buku->rak_id;
         $this->penerbit_id = $buku->penerbit_id;
         $this->kode = Kode::all();
@@ -118,7 +120,7 @@ class Buku extends Component
             'judul' => 'required',
             'penulis' => 'required',
             'stok' => 'required|numeric|min:1',
-            'kode_buku' => 'required|numeric|min:1',
+            'kode_buku' => 'required',
             'tahun_terbit' => 'required|numeric|min:1',
             // 'rak_id' => 'required|numeric|min:1',
             'penerbit_id' => 'required|numeric|min:1',

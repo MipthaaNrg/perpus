@@ -43,7 +43,7 @@ class BukuSeeder extends Seeder
             'sampul' => 'buku/novel.jpg',
             'penulis' => 'Rahmat Riyadi',
             'penerbit_id' => 2,
-            'kode_id' => '300 - Novel',
+            'kode_buku' => '300 - Novel',
             'tahun_terbit' => 2010,
             'stok' => 10
         ]);

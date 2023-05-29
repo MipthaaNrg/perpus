@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>Kode Buku</th>
                                         <td>:</td>
-                                        <td>{{$kode}}</td>
+                                        <td>{{$kode_buku}}</td>
                                     </tr>
                                     <tr>
                                         <th>Tahun Terbit</th>
