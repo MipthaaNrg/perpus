@@ -10,9 +10,12 @@ use Livewire\Component;
 class Keranjang extends Component
 {
     public $tanggal_pinjam;
+    public $tanggal_kembali;
+    
 
     protected $rules = [
-        'tanggal_pinjam' => 'required|date|after_or_equal:today',
+        'tanggal_pinjam' => 'required|date',
+        'tanggal_kembali' => 'required|date',
     ];
 
     public function hapus(Peminjaman $peminjaman, DetailPeminjaman $detail_peminjaman)
@@ -47,10 +50,10 @@ class Keranjang extends Component
         $keranjang->update([
             'status' => 1,
             'tanggal_pinjam' => $this->tanggal_pinjam,
-            'tanggal_kembali' => Carbon::create($this->tanggal_pinjam)->addDays(10)
+            'tanggal_kembali' => $this->tanggal_kembali
         ]);
 
-        session()->flash('sukses', 'Buku berhasil dipinjam');
+        session()->flash('sukses', 'Pengajuan Peminjaman Buku berhasil');
     }
 
     public function render()

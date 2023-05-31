@@ -96,7 +96,7 @@ class Buku extends Component
                 }
 
             } else {
-                session()->flash('gagal', 'Role user anda bukan peminjam');
+                session()->flash('gagal', 'Role user anda bukan Anggota');
             }
 
         } else {

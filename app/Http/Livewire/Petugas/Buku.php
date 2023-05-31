@@ -122,7 +122,6 @@ class Buku extends Component
             'stok' => 'required|numeric|min:1',
             'kode_buku' => 'required',
             'tahun_terbit' => 'required|numeric|min:1',
-            // 'rak_id' => 'required|numeric|min:1',
             'penerbit_id' => 'required|numeric|min:1',
         ];
 

@@ -50,7 +50,5 @@ class PenerbitController extends Controller
             'message' => 'success',
             ], 200);
 
-        //return response
-        // return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
     }
 }

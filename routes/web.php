@@ -12,6 +12,7 @@ use App\Http\Controllers\Petugas\PenerbitController;
 use App\Http\Controllers\Petugas\TransaksiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\API\BukuControllers;
 
 
 Route::get('/', PeminjamBukuController::class);

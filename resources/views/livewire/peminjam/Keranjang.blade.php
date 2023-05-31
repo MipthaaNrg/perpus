@@ -8,10 +8,15 @@
     @include('admin-lte/flash')
 
     <div class="row">
-        <div class="col-md-12 mb-4">
+        <div class="col-md-6 mb-4">
             <label for="tanggal_pinjam">Tanggal Pinjam</label>
             <input wire:model="tanggal_pinjam" type="date" class="form-control" id="tanggal_pinjam">
             @error('tanggal_pinjam') <small class="text-danger">{{ $message }}</small> @enderror
+        </div>
+        <div class="col-md-6 mb-4">
+            <label for="tanggal_kembali">Tanggal Kembali</label>
+            <input wire:model="tanggal_kembali" type="date" class="form-control" id="tanggal_kembali">
+            @error('tanggal_kembali') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
     </div>
 
@@ -34,27 +39,33 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Penulis</th>
-                    @if (!$keranjang->tanggal_pinjam)
-                        <th></th>
-                    @endif   
+                   
+                    @if (!$keranjang->tanggal_pinjam) 
+                    <th>Tanggal Pinjam</th>
+                     @endif   
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($keranjang->detail_peminjaman as $item)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->buku->judul}}</td>
-                            <td>{{$item->buku->penulis}}</td>
-                            <td>
-                                @if (!$keranjang->tanggal_pinjam)
-                                    <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>
-                                @endif       
-                            </td>
-                        </tr>
+                        @if($keranjang->petugas_pinjam != 1)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->buku->judul}}</td>
+                                <td>{{$item->buku->penulis}}</td>
+                                @if (!$keranjang->tanggal_pinjam) 
+                                <td>{{$item->peminjaman->tanggal_pinjam}}</td>
+                                @endif
+                                <td>
+                                    @if ($keranjang->tanggal_pinjam)
+                                        <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>
+                                    @endif       
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
-            @if (!$keranjang->tanggal_pinjam)
+            @if ($keranjang->tanggal_pinjam)
                  <button wire:click="hapusMasal" class="btn btn-sm btn-danger">Hapus Masal</button>
             @endif        
         </div>

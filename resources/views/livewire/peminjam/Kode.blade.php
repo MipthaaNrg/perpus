@@ -9,21 +9,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                 <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Kode Buku
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" style="cursor: pointer">
-                            <a class="dropdown-item" wire:click="semuaKode">Semua Kode</a>
-                            <div class="dropdown-divider"></div>
-                            @foreach ($kode as $item)
-                                <a class="dropdown-item" wire:click="pilihKode({{$item->id}})">{{$item->nama}}</a>
-                            @endforeach
-                        </div>
-                    </li>
-            </ul>
+         
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

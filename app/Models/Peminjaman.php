@@ -30,18 +30,18 @@ class Peminjaman extends Model
         return $value ? "Rp. {$value}" : '-' ;
     }
    
-    public function getTanggalPinjamAttribute($value)
-    {
-        return Carbon::create($value)->format('d-M-Y');
-    }
+    // public function getTanggalPinjamAttribute($value)
+    // {
+    //     return Carbon::create($value)->format('d-M-Y');
+    // }
    
-    public function getTanggalKembaliAttribute($value)
-    {
-        return Carbon::create($value)->format('d-M-Y');
-    }
+    // public function getTanggalKembaliAttribute($value)
+    // {
+    //     return Carbon::create($value)->format('d-M-Y');
+    // }
    
-    public function getTanggalPengembalianAttribute($value)
-    {
-        return Carbon::create($value)->format('d-M-Y');
-    }
+    // public function getTanggalPengembalianAttribute($value)
+    // {
+    //     return Carbon::create($value)->format('d-M-Y');
+    // }
 }
