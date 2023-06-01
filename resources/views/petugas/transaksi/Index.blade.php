@@ -1,5 +1,5 @@
 @extends('admin-lte/app')
-@section('title', 'Transaksi')
+@section('title', 'Peminjaman Buku')
 @section('active-transaksi', 'active')
 
 @section('content')

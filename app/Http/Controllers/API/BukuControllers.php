@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BukuControllers extends Controller
 {
+    public $kode_buku;
+
     public function getBuku()
     {
         return response()->json([
@@ -89,26 +91,39 @@ class BukuControllers extends Controller
 
     }
 
-    // public function edit(ModelsKode $kode)
-    // {
-    //     $this->format();
-    //     $this->edit = true;
-    //     $this->nama = $kode->nama;
-    //     $this->kode_buku = $kode->id;
-    // }
+    public function ubah(Request $request)
+    {
+        try {
+            $data = Buku::where('kode_buku', $request->kode_buku)->first();
+            if($data != NULL){
+                Buku::where('kode_buku', $request->kode_buku)->update([
+                    'sampul'     => $request->sampul,
+                    'judul' => $request->judul,
+                    'penulis' => $request->penulis,
+                    'stok' => $request->stok,
+                    'kode_buku' => $request->kode_buku,
+                    'tahun_terbit' => $request->tahun_terbit,
+                    'penerbit_id' => $request->penerbit_id,
+                ]);
+                return response()->json([
+                    'code' => 200,
+                    'message' => 'Data Buku Berhasil Diubah',
+                    ], 200);
+            }else{
+                return response()->json([
+                    'code' => 400,
+                    'message' => 'Data Buku Tidak Ditemukan',
+                    ], 200);    
+            }
+            
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'code' => 400,
+                'message' => (string)$e,
+                ], 200);
+        }
 
-    // public function update(ModelsKode $kode)
-    // {
-    //     $this->validate();
-
-    //     $kode->update([
-    //         'nama' => $this->nama,
-    //         'slug' => Str::slug($this->nama)
-    //     ]);
-
-    //     session()->flash('sukses', 'Data berhasil diubah.');
-    //     $this->format();
-    // }
+    }
 
     public function delete(Request $request)
     {
@@ -135,15 +150,6 @@ class BukuControllers extends Controller
         }
        
     }
-
-    // public function destroy(Request $request)
-    // {
-    //     Storage::disk('public')->delete($request->sampul);
-    //     $request->delete();
-
-    //     session()->flash('sukses', 'Data berhasil dihapus.');
-    //     $this->format();
-    // }
 
    
 }

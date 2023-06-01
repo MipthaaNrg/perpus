@@ -1,0 +1,5 @@
+a.Mengambil data semua buku : http://127.0.0.1:8000/api/books
+b.Mengambil data buku sesuai dengan kode: http://127.0.0.1:8000/api/books/{code}
+c.Membuat buku baru: http://127.0.0.1:8000/api/addBooks
+d.Mengubah data buku sesuai dengan kode: http://127.0.0.1:8000/api/updateBooks
+e.Menghapus data buku sesuai dengan kode: http://127.0.0.1:8000/api/deleteBooks

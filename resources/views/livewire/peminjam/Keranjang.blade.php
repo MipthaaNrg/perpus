@@ -24,10 +24,11 @@
         <div class="col-md-12 mb-2">
             @if ($keranjang->tanggal_pinjam)
                 <strong>Tanggal Pinjam: {{$keranjang->tanggal_pinjam}}</strong>
+                <strong class="float-right">Kode Pinjam : {{$keranjang->kode_pinjam}}</strong>
             @else
                 <button wire:click="pinjam({{$keranjang->id}})" class="btn btn-sm btn-success">Pinjam</button>
             @endif
-            <strong class="float-right">Kode Pinjam : {{$keranjang->kode_pinjam}}</strong>
+            
         </div>
     </div>
 
@@ -39,10 +40,8 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Penulis</th>
-                   
-                    @if (!$keranjang->tanggal_pinjam) 
-                    <th>Tanggal Pinjam</th>
-                     @endif   
+                    <th>Tahun Terbit</th>
+                    <th><th>
                 </tr>
                 </thead>
                 <tbody>
@@ -52,11 +51,9 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->buku->judul}}</td>
                                 <td>{{$item->buku->penulis}}</td>
-                                @if (!$keranjang->tanggal_pinjam) 
-                                <td>{{$item->peminjaman->tanggal_pinjam}}</td>
-                                @endif
+                                <td>{{$item->buku->tahun_terbit}}</td>
                                 <td>
-                                    @if ($keranjang->tanggal_pinjam)
+                                    @if (!$keranjang->tanggal_pinjam)
                                         <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>
                                     @endif       
                                 </td>
@@ -65,7 +62,7 @@
                     @endforeach
                 </tbody>
             </table>
-            @if ($keranjang->tanggal_pinjam)
+            @if (!$keranjang->tanggal_pinjam)
                  <button wire:click="hapusMasal" class="btn btn-sm btn-danger">Hapus Masal</button>
             @endif        
         </div>

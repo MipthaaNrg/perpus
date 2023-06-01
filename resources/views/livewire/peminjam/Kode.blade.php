@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
+    <img src="/adminlte/dist/img/perpus.png" alt="e-perpus" class="brand-image img-circle elevation-3" style="opacity: .8;width: 50px;height:50px;">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'E-perpus') }}
         </a>
@@ -8,9 +9,6 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-         
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->

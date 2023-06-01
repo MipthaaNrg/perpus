@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BukuController;
-
+use App\Http\Controllers\API\BukuControllers;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +26,6 @@ Route::get('/books/{code}', [App\Http\Controllers\API\BukuControllers::class, 'g
 
 Route::post('/addBooks', [App\Http\Controllers\API\BukuControllers::class, 'store']);
 
-Route::post('/books/{code}', [App\Http\Controllers\API\BukuControllers::class, 'update']);
+Route::post('/updateBooks', [App\Http\Controllers\API\BukuControllers::class, 'ubah']);
 
-// Route::delete('/deleteBooks/{code}', [App\Http\Controllers\API\BukuController::class, 'delete']);
 Route::post('/deleteBooks',[App\Http\Controllers\API\BukuControllers::class, 'delete']);

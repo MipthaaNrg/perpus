@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     // role admin dan petugas
-    Route::middleware(['role:admin|petugas'])->group(function () {
+    Route::middleware(['role:admin'])->group(function () {
         Route::get('/dashboard', DashboardController::class);
 
         Route::get('/kode', KodeController::class);

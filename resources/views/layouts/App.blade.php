@@ -24,7 +24,8 @@
 
     @livewireStyles
 </head>
-<body>
+
+<body >
     <div id="app">
         <livewire:peminjam.kode></livewire:peminjam.kode>
 

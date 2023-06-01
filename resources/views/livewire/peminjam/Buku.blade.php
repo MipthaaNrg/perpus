@@ -9,10 +9,10 @@
             <div class="col-md-4">
               <label class="sr-only" for="inlineFormInputGroup">Username</label>
                 <div class="input-group mb-2">
-                  <input wire:model="search" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cari Buku">
+                  <input wire:model="search" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cari Buku" style="border:1px solid #0071BC;">
                   <div class="input-group-prepend">
-                    <button class="input-group-text">
-                      <i class="fas fa-search"></i>
+                    <button class="input-group-text" style="background:#0071BC">
+                      <i class="fas fa-search" style="color:#FFFFFF"></i>
                     </button>
                   </div>
                 </div>

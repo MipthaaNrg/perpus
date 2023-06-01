@@ -67,20 +67,6 @@
                                 @error('penerbit_id') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                         </div>
-                        <!-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="rak">Rak</label>
-                                <select wire:model="rak_id" class="form-control" id="rak">
-                                    <option selected value="">Pilih Rak</option>
-                                    @isset($rak)
-                                        @foreach ($rak as $item)
-                                            <option value="{{$item->id}}">Rak : {{$item->rak}}, Baris : {{$item->baris}}</option>
-                                        @endforeach
-                                    @endisset
-                                </select>
-                                @error('rak_id') <small class="text-danger">{{ $message }}</small> @enderror
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
